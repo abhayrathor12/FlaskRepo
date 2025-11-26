@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Training – Submit Data</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1117; /* GitHub Dark theme */
+            color: #c9d1d9;
+            font-family: "Fira Code", monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #161b22;
+            padding: 30px;
+            width: 350px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 140, 0.2);
+            border: 1px solid #30363d;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #58a6ff;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #c9d1d9;
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #238636;
+            color: white;
+            border-radius: 6px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #2ea043;
+        }
+
+        .error {
+            margin-top: 15px;
+            padding: 10px;
+            background: #490f0f;
+            color: #ff6b6b;
+            border: 1px solid #8b0000;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>DevOps Data Form</h1>
+
+        <form action="/submit" method="POST">
+            <input type="text" name="name" placeholder="Enter your name" required><br><br>
+            <input type="email" name="email" placeholder="Enter your email" required><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
