@@ -38,6 +38,22 @@ def submit():
     except Exception as e:
         return render_template("index.html", error=str(e))
 
+@app.route('/submittodoitem', methods=['POST'])
+def submit_todo_item():
+    item_name = request.form.get('itemName')
+    item_desc = request.form.get('itemDescription')
+
+    data = {
+        "item_name": item_name,
+        "item_description": item_desc
+    }
+
+    # Insert into MongoDB
+    collection.insert_one(data)
+
+    return "To-Do Item Saved Successfully"
+
+
 @app.route('/success')
 def success():
     return render_template("success.html")
